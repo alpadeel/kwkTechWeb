@@ -1,0 +1,162 @@
+
+.head {
+  display: flex;
+  padding-top: 40px;
+}
+.bg {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  left: 750px;
+}
+.logo {
+  width: 100%;
+  padding-left: 60px;
+}
+.btn {
+  vertical-align: middle;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  padding-right: 60px;
+}
+.myBtn {
+  background: none;
+  border: none;
+  font-family: "roboto";
+  font-size: 24px;
+  color: #ff6e53;
+}
+.emblem {
+  display: flex;
+  padding-top: 90px;
+  padding-left: 14%;
+}
+.heading {
+  display: flex;
+  padding-top: 20px;
+  padding-left: 14%;
+  font-family: "roboto";
+  font-size: 36px;
+  color: #4d5152;
+}
+.text {
+  padding-top: 20px;
+  padding-left: 14%;
+  text-align: justify;
+  width: 55%;
+}
+.text p {
+  font-family: "roboto";
+  font-size: 18px;
+  padding: 0px;
+}
+#more {
+  color: blue;
+  font-family: "roboto";
+  font-size: 16px;
+  cursor: pointer;
+}
+#more_text {
+  display: none;
+}
+#more_text p {
+  font-family: "roboto";
+  font-size: 18px;
+  padding: 0px;
+}
+.signature {
+  padding-top: 20px;
+  padding-left: 14%;
+}
+.modal-header {
+  display: block;
+}
+.form_container {
+  width: 100%;
+}
+.form_element {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.form_btn {
+  margin: auto;
+  display: flex;
+  background-color: #ff6e53;
+  color: white;
+  border: none;
+  padding: 10px 30px 10px 30px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .head {
+    display: flex;
+    padding-top: 20px;
+  }
+  .bg {
+    display: none;
+  }
+  .logo {
+    width: 100%;
+    padding-left: 20px;
+  }
+  .logo img {
+    width: 120px;
+  }
+  .btn {
+    vertical-align: middle;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    padding-right: 20px;
+  }
+  .myBtn {
+    background: none;
+    border: none;
+    font-family: "roboto";
+    font-size: 18px;
+    color: #ff6e53;
+  }
+  .emblem {
+    display: flex;
+    padding-top: 60px;
+    padding-left: 60px;
+  }
+  .emblem img {
+    width: 60px;
+  }
+  .heading {
+    display: flex;
+    padding-top: 20px;
+    padding-left: 60px;
+    font-family: "roboto";
+    color: #4d5152;
+  }
+  .heading h1 {
+    font-size: 24px;
+  }
+  .text {
+    padding-top: 20px;
+    padding-left: 60px;
+    text-align: justify;
+    width: 90%;
+  }
+  .text p,
+  #more_text p {
+    font-family: "roboto";
+    font-size: 16px;
+    padding: 0px;
+  }
+  .signature {
+    padding-top: 20px;
+    padding-left: 50px;
+    display: flex;
+  }
+  .signature img {
+    width: 160px;
+  }
+}

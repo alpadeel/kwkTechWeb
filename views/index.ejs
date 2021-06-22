@@ -1,138 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Home</title>
-	<style>
-		*, *::before, *::after {
-			box-sizing: border-box;
-		}
-		body {
-			font-family: sans-serif;
-			font-size: 16px;
-			background-color: #fff;
-		}
-		h1 {
-			font-variant: small-caps;
-		}
-		.contact {
-			visibility: hidden;
-			opacity: 0;
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			transition: .5s;
-			background-color: #fff;
-		}
-		.contact section {
-			text-align: right;
-			padding: 10px;
-		}
-			.contact section a {
-				border: none;
-				text-decoration: none;
-				outline: none;
-				color: #e05e02;
-			}
-		.contact:target {
-			visibility: visible;
-			opacity: 1;
-		}
-		.contact-form {
-			position: absolute;
-			max-width: 500px;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%,-50%);
-			display: flex;
-			flex-direction: column;
-			box-shadow: 0 0 20px rgba(0,0,0,0.2);
-			width:90%;
-			border-radius: 20px;
-			overflow: hidden;
-		}
-		.contact-form-input,
-		.contact-form button {
-			font-family: inherit;
-			text-transform: uppercase;
-			font-weight: bold;
-			font-size: 12px;
-			padding: 24px;
-			letter-spacing: 1px;
-			border: none;
-			width: 100%;
-			outline: none;
-		}
-		.contact-form button {
-			background-color: #e05e02;
-			padding: 20px;
-			color: #fff;
-		}
-		.contact-form div:nth-child(1),
-		.contact-form div:nth-child(2) {
-			position: relative;
-		}
-		.contact-form div:nth-child(1)::after,
-		.contact-form div:nth-child(2)::after {
-			content: "";
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			height: 1px;
-			background-color: rgba(0,0,0,0.15);
-		}
-		.contact-form textarea {
-			overflow: auto;
-			height: 100px;
-			text-transform: none;
-		}
-	</style>
-	<script type="text/javascript">
-		function submitEmailForm(form) {
-			var obj = new XMLHttpRequest();
-			obj.onreadystatechange = function(){
-				if(obj.readyState == 4){
-					if(obj.status == 200){
-						var res = JSON.parse(obj.responseText);
-						alert(res.message);
-					}
-					else{
-						alert("XMLHttp status " + obj.status + ": " + obj.statusText);
-					}
-				}
-			};
-			obj.open("post", form.action, true);
-			obj.setRequestHeader("Content-Type", "application/json"); // NOTICE: "application/json"
-			obj.send(JSON.stringify({ name: form.name.value, email: form.email.value, message: form.message.value }));
-			return false;
-		}
-	</script>
-</head>
-<body>
-	<h1>Home Page</h1>
-	<p><a href="#contact-id">click here for the contact form</a></p>
-	<div class="contact" id="contact-id">
-		<section><a href="#!">[ close ]</a></section>
-		<form action="/ajax/email" class="contact-form" method="POST" onsubmit="return submitEmailForm(this);">
-			<div>
-				<input type="text" name="name" placeholder="name" class="contact-form-input" required />
-			</div>
-			<div>
-				<input type="email" name="email" placeholder="email" class="contact-form-input" required />
-			</div>
-			<div>
-				<textarea name="message" class="contact-form-input" placeholder="MESSAGE" required></textarea>
-			</div>
-			<div>
-				<button type="submit">send</button>
-			</div>
-		</form>
-	</div>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+    <link
+     
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>KWK Tech</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="bg">
+        <img src="/images/kt_bg.png" alt="Background Image" />
+      </div>
+      <div class="head">
+        <div class="logo">
+          <img src="/images/kt_logo.png" alt="Logo" />
+        </div>
+        <div class="btn">
+          <button
+            type="button"
+            class="myBtn"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            Investors
+          </button>
+        </div>
+      </div>
+      <div class="emblem">
+        <img src="/images/kt.png" alt="Emblem" />
+      </div>
+      <div class="heading">
+        <h1>is for KWK Tech</h1>
+      </div>
+      <div class="text">
+        <p>
+          KwK Tech has a similar approach to other stand-out tech companies,
+          which is why we are not a conventional company. We strive to push the
+          envelope. “Impossible” or “can’t” is not an acceptable answer or
+          conclusion. It is frustrating trying to partner with companies that
+          are rooted in saying “SORRY we can’t do that”.
+          <span onclick="myFunction()" id="more">See More</span>
+        </p>
+        <span id="more_text">
+          <p>
+            KwK Tech is focused on making results, not excuses. We pride
+            ourselves on thinking outside the box. I spent over 30 years
+            designing and engineering magic illusions for magicians to make the
+            impossible possible. Impossible was never a conclusion, thinking
+            outside the box, reinventing old ways, creating new techniques and
+            technologies just to overcome a problem is what I did and continue
+            doing.
+          </p>
+          <p>
+            KwK Tech is an innovative solution to the problems that exist and
+            the problems you do not know that exist or foresee to exist. We take
+            the worst out of the tech that exists today and make it better and
+            add our KwK touch to everything and at the same time create new
+            products.
+          </p>
+          <p>
+            If Speed is important to you, then KwK Tech is invested in it. KwK
+            Tech aims to have everything you want to be brought to you not just
+            quickly but KWKly!
+          </p>
+        </span>
+      </div>
+      <div class="signature">
+        <img src="/images/sign.png" alt="Signature" />
+      </div>
+    </div>
 
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title">Contact Form</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/ajax/email" class="contact-form" method="POST" onsubmit="return submitEmailForm(this);">
+              <div class="form_container">
+                <input
+                  class="form_element"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                  required
+                />
+                <input
+                  class="form_element"
+                  type="email"
+                  id="uemail"
+                  name="uemail"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  class="form_element"
+                  type="text"
+                  id="cname"
+                  name="cname"
+                  placeholder="Company Name"
+                />
+                <input
+                  class="form_element"
+                  type="text"
+                  id="pnumber"
+                  name="pnumber"
+                  placeholder="Phone Number"
+                />
+                <textarea
+                  class="form_element"
+                  name="udescription"
+                  id="udescription"
+                  cols="30"
+                  rows="10"
+                  placeholder="Query"
+                ></textarea>
+                <button class="form_btn" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function submitEmailForm(form) {
+        var obj = new XMLHttpRequest();
+        obj.onreadystatechange = function(){
+          if(obj.readyState == 4){
+            if(obj.status == 200){
+              var res = JSON.parse(obj.responseText);
+              alert(res.message);
+            }
+            else{
+              alert("XMLHttp status " + obj.status + ": " + obj.statusText);
+            }
+          }
+        };
+        obj.open("post", form.action, true);
+        obj.setRequestHeader("Content-Type", "application/json"); // NOTICE: "application/json"
+        obj.send(JSON.stringify({ 
+           name: form.name.value,
+           email: form.uemail.value,
+           companyName: form.cname.value,
+           phoneNumber: form.pnumber.value,
+           Description: form.udescription.value,
+            }));
+        return false;
+      }
+    </script>
+    <script>
+      function myFunction() {
+        var moreText = document.getElementById("more_text");
+        var btnText = document.getElementById("more");
+        moreText.style.display = "inline";
+        btnText.style.display = "none";
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
