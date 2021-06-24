@@ -26,8 +26,7 @@ app.post("/ajax/email", function(request, response) {
      port: 465,
           secure: true,
           auth: {
-              user: process.env.EMAIL,
-              pass: process.env.PASSWORD
+             
           }
       });
   
@@ -41,13 +40,13 @@ app.post("/ajax/email", function(request, response) {
        `
       var htmlBody = 
       `<h2> Kwk Tech </h2>
-      <p> </br>
-      from: ${request.body.name}</br>
-      Company Name:  ${request.body.companyName}</br>
-      Phone Number:  ${request.body.phoneNumber}</br>
-      email: <a href="mailto:${request.body.email}">${request.body.email}</a>
-      </p>
-      <p>${request.body.Description}</p>`;
+       </br>
+      <div> From: ${request.body.name} </div></br>
+      <div>Company Name:  ${request.body.companyName} </div></br>
+      <div>Phone Number:  ${request.body.phoneNumber} </div></br>
+      <div>Email: <a href="mailto:${request.body.email}">${request.body.email}</a></div>
+      
+      <div><p>Description: ${request.body.Description}</p></div>`;
       var mail = {
           from: process.env.EMAIL, // sender address
           to:  process.env.EMAIL, // list of receivers (THIS COULD BE A DIFFERENT ADDRESS or ADDRESSES SEPARATED BY COMMAS)

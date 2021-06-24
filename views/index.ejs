@@ -17,21 +17,14 @@
   <body>
     <div class="container-fluid">
       <div class="bg">
-        <img src="/images/kt_bg.png" alt="Background Image" />
+        <img src="/images/kwk_bg.png" alt="Background Image" />
       </div>
       <div class="head">
         <div class="logo">
           <img src="/images/kt_logo.png" alt="Logo" />
         </div>
         <div class="btn">
-          <button
-            type="button"
-            class="myBtn"
-            data-toggle="modal"
-            data-target="#myModal"
-          >
-            Investors
-          </button>
+          <a class="myBtn" href="mailto:k.yahyaaa@gmail.com">Contact Us</a>
         </div>
       </div>
       <div class="emblem">
@@ -75,103 +68,60 @@
       </div>
       <div class="signature">
         <img src="/images/sign.png" alt="Signature" />
+        <p>Stathi Zaf</p>
       </div>
-    </div>
-
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-            <h4 class="modal-title">Contact Form</h4>
-          </div>
-          <div class="modal-body">
-            <form action="/ajax/email" class="contact-form" method="POST" onsubmit="return submitEmailForm(this);">
-              <div class="form_container">
-                <input
-                  class="form_element"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                  required
-                />
-                <input
-                  class="form_element"
-                  type="email"
-                  id="uemail"
-                  name="uemail"
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  class="form_element"
-                  type="text"
-                  id="cname"
-                  name="cname"
-                  placeholder="Company Name"
-                />
-                <input
-                  class="form_element"
-                  type="text"
-                  id="pnumber"
-                  name="pnumber"
-                  placeholder="Phone Number"
-                />
-                <textarea
-                  class="form_element"
-                  name="udescription"
-                  id="udescription"
-                  cols="30"
-                  rows="10"
-                  placeholder="Query"
-                ></textarea>
-                <button class="form_btn" type="submit">Submit</button>
-              </div>
-            </form>
-          </div>
+      <div class="group">
+        <div class="images">
+          <img src="/images/pay.png" alt="Pay" />
+          <img src="/images/cloud.png" alt="Cloud" />
+          <img src="/images/music.png" alt="Music" />
+          <img src="/images/pharma.png" alt="Pharma" />
+          <img src="/images/coin.png" alt="Coin" />
+          <img src="/images/viewer.png" alt="Viewer" />
+          <img src="/images/space.png" alt="Space" />
+          <img src="/images/live.png" alt="Live" />
+          <img src="/images/courier.png" alt="Courier" />
+          <img src="/images/book.png" alt="Book" />
+          <img src="/images/bites.png" alt="Bites" />
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      function submitEmailForm(form) {
-        var obj = new XMLHttpRequest();
-        obj.onreadystatechange = function(){
-          if(obj.readyState == 4){
-            if(obj.status == 200){
-              var res = JSON.parse(obj.responseText);
-              alert(res.message);
-            }
-            else{
-              alert("XMLHttp status " + obj.status + ": " + obj.statusText);
-            }
-          }
-        };
-        obj.open("post", form.action, true);
-        obj.setRequestHeader("Content-Type", "application/json"); // NOTICE: "application/json"
-        obj.send(JSON.stringify({ 
-           name: form.name.value,
-           email: form.uemail.value,
-           companyName: form.cname.value,
-           phoneNumber: form.pnumber.value,
-           Description: form.udescription.value,
-            }));
-        return false;
-      }
-    </script>
-    <script>
-      function myFunction() {
-        var moreText = document.getElementById("more_text");
-        var btnText = document.getElementById("more");
-        moreText.style.display = "inline";
-        btnText.style.display = "none";
-      }
-    </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
+  <script>
+    var counter = 0;
+    $(".images img").each(function (i) {
+      if (i == 0) {
+        counter = 0;
+      } else {
+        counter++;
+      }
+      if (counter < 4) {
+        $(this).addClass("show");
+      } else {
+        $(this).addClass("hide");
+      }
+    });
+    function shuffleRandomLogos(remove, add) {
+      const logo = $("." + remove).toArray();
+      const logoLength = logo.length;
+      const randomNum = Math.floor(Math.random() * logoLength);
+      const randomLogo = logo[randomNum];
+      $(randomLogo).removeClass(remove);
+      $(randomLogo).addClass(add);
+    }
+    window.setInterval(function () {
+      shuffleRandomLogos("show", "hide");
+      shuffleRandomLogos("hide", "show");
+    }, 2000);
+    function myFunction() {
+      var moreText = document.getElementById("more_text");
+      var btnText = document.getElementById("more");
+      moreText.style.display = "inline";
+      btnText.style.display = "none";
+    }
+  </script>
 </html>
